@@ -1,6 +1,7 @@
 'use strict';
 const {slides,prompts:corePrompts,extension_prompts:extensionPrompts=[],rows,news,sources,summary}=window.COURSE;
-const prompts=[...corePrompts,...extensionPrompts];
+const promptCards=[...corePrompts,...extensionPrompts];
+const prompts=window.COURSE.prompt_order.map(id=>promptCards.find(p=>p.id===id));
 const $=id=>document.getElementById(id), total=slides.length;
 const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let current=0,lastSlide=0,toastTimer;
