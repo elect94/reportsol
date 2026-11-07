@@ -1,0 +1,13 @@
+[X06] Firebase 연습 연결 확인
+준비: 로컬 demo-study-desk · comparison_records
+이 단계 기본값: Firestore: demo-study-desk / comparison_records / 로컬 연습
+
+그대로 복사할 완성 예시
+‘두 회사 리서치 노트’의 로컬 Firestore 기본 프로젝트는 demo-study-desk, 기록 컬렉션은 comparison_records로 정해줘.
+class-setup.txt의 실제 에뮬레이터 주소·실행 상태·코드와 프로젝트 ID 일치를 확인해줘. 컬렉션은 기록 묶음이라는 뜻으로 설명해줘.
+브라우저→기존 앱 서버→로컬 에뮬레이터 경로를 써줘. 원격 수업에서 학생 브라우저의 localhost로 연결하지 마.
+비밀 값은 출력하지 말고 운영 클라우드·결제·배포는 만들지 마. 준비가 없거나 ID가 다르면 임의 변경하지 말고 강사에게 알려줘.
+
+예상 결과: 연습 프로젝트 demo-study-desk와 기록 묶음 comparison_records를 확인합니다.
+직접 확인: 프로젝트·컬렉션 이름을 학생이 새로 짓지 않습니다. 실제 연결은 강사가 확인합니다.
+막히면: 환경이 없으면 검증된 C2를 사용합니다. localStorage 대체를 Firebase 성공이라고 하지 않습니다.
