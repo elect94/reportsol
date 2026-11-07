@@ -1,0 +1,22 @@
+수업 기본값 / 10페이지부터 세 연결만 진행
+
+출발점 | P02 완료 = HTML 제작·미리 보기 / 미배포 | 학생 앱의 배포 주소는 아직 없음
+최초 배포 | P03 코드 준비 → 파일 옮기기 → 14페이지 최초 배포 | 발급된 /exec 주소에서 Sheets 연결을 확인
+진행 순서 | P03 Sheets → P04 Docs → P05 Firebase | 새로 복사하는 필수 프롬프트는 3개
+회사 | 애플 AAPL · 마이크로소프트 MSFT | 미국 NASDAQ · USD
+자료 | 2026-10-12~2026-11-06 · 회사별 8개 관측치 | 교육용 가상 / 실제 시세 미연결
+대조값 | AAPL 237.50 USD · MSFT 433.00 USD | 첨부 HTML의 마지막 가상 값 / 최신 주가 아님
+Apps Script | 두 회사 리서치 노트 | Index.html + Code.gs / 본인만 접근
+Sheets | 리서치 연습 - 관심 목록 / 관심종목 | 회사명·종목코드·시장·메모·사용
+Docs | 리서치 연습 - 비교 기록 | 대상·수치·기간·가상 출처·미확인
+Firebase | 표시 이름 리서치 연습 / 웹 앱 research-note | 고유 프로젝트 ID와 firebaseConfig는 본인 콘솔의 실제 값
+저장 경로 | users/{uid}/comparison_records/{reportId} | UID와 보고서 ID는 앱이 자동으로 채움
+최종 조작 | 기본 예제 → Sheets → 보고서 → Docs → Firebase → 재조회 | 학생이 JSON을 만들어 넣는 단계 없음
+
+프롬프트별 기본값
+01 앱: 두 회사 리서치 노트 / AAPL·MSFT / 최근 한 달 / USD
+X01 규칙: 초보 리서치 도구 / 이 프로젝트만 / 기본값 유지
+02 첫 선택: 두 회사 / 기본 버튼: 기본 예제로 시작
+03 Sheets: 리서치 연습 - 관심 목록 / 관심종목 / AAPL·MSFT
+04 Docs: 리서치 연습 - 비교 기록 / 기존 보고서 버튼 사용
+05 표시 이름: 리서치 연습 / 웹 앱: research-note / 사용자별 comparison_records

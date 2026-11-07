@@ -1,13 +1,12 @@
-두 회사 리서치 노트 / 자료 사용 순서
-1. ZIP을 풀고 index.html로 28장 강의를 연다. 자료실에서 beginner-handbook.html을 열면 상세 따라하기·복사 버튼이 있다.
-2. 처음에는 기본값 표와 준비 절만 읽는다. 기본값은 애플 AAPL·마이크로소프트 MSFT·최근 한 달. 투자 지식·JSON 작성은 필요 없다.
-3. 강사는 instructor-checklist.txt와 class-setup.txt로 실제 데이터·Google·로컬 Firestore·1회 예약을 먼저 검증한다. C0/C1/C2 시작·복구 프로젝트는 현재 꾸러미에 포함되지 않았다.
-4. 시트는 watchlist-example.tsv의 완성 표를 관심종목!A1에 붙이고, 본인 빈 Docs ‘리서치 연습 - 비교 기록’을 준비한다.
-5. filled-prompts.txt는 빈칸 없는 24개 완성 예시다. all-prompts.txt는 기본12개, extension-prompts.txt는 응용12개다. 한 개씩 보내고 결과 확인 후 다음으로 간다.
-6. 실습 순서: P01→X01→P02~05→X02~03→P07→X04~05→X06~08→X09~11→P09→P10→X12→P11. P08은 막힐 때. P06뉴스·P12공유는 참고.
-7. lesson-flow.txt의 180분 안에 Google·Firebase·1회 예약 응용을 포함한다. 설치·계정 연결은 사전 준비이며 실제 진행 시간은 예행연습으로 조정한다.
-8. lecture.pptx는 편집용, lecture.pdf는 강의 인쇄용, beginner-handbook.pdf는 상세 교재다. lesson-plan.txt와 PPTX 메모에 강사 진행 설명이 있다.
-9. Google 앱 접근은 에이전트 권한이다. 웹앱의 실시간 시트·Docs 연결과 다르다. Firebase는 로컬 에뮬레이터 실습이며 운영 클라우드 연결은 하지 않는다.
-10. worksheet.txt와 웹 활동지에는 직접 관찰한 결과를 적는다. 자동 저장은 현재 브라우저에만 적용되므로 다른 기기로 옮길 때 TXT를 내려받는다.
-11. research-workbench.html·stock-data-example.json·report-example은 기존 가상 저장 자료 보조 예제다. 실제 검색·비교 목표 앱이 아니다. DEMO·SAMPLE 가격·뉴스는 창작이다.
-12. 실제 가격 숫자·본인 문서 URL·키는 지어 채우지 않았다. 본인 파일 검색 실패 시에만 URL을 추가하고, 기술 연결의 미확정 항목은 강사가 해결한다.
+자료 사용 안내 / 2026-11-07 연결 수업 개정
+1. index.html로 강의를 엽니다. 1~9페이지는 보존했습니다. 프롬프트 2까지 했다면 10페이지부터 이어 갑니다.
+2. 10~15페이지 Sheets/P03 → 16~20페이지 Docs/P04 → 21~26페이지 Firebase/P05 → 27~28페이지 확인입니다.
+3. beginner-handbook.html에는 클릭 순서·완성 프롬프트·실패 대응·실제 확인 방법이 있습니다. PDF·TXT도 같은 내용입니다.
+4. continuation-prompts.txt에 지금 필요한 프롬프트 3개만 있습니다. filled-prompts.txt는 앞부분 P01·X01·P02까지 포함한 전체 6개입니다.
+5. research-note-start.html은 사용자가 제공한 P02 결과물의 원본 사본입니다. 교육용 가상 데이터이며 미배포·외부 서비스 미연결 상태입니다. 이미 만든 파일이 있으면 그것으로 이어 갑니다.
+6. Sheets와 Docs는 같은 Apps Script 프로젝트에서 실행합니다. 웹페이지 버튼은 에이전트 플러그인만 설치해서 연결되지 않습니다. P02에는 배포 URL이 없습니다. P03으로 코드를 준비하고 14페이지에서 최초 배포해 발급받은 나만 접근하는 URL에서 조작합니다.
+7. Firebase 웹 앱 설정은 본인 콘솔의 실제 값만 전달합니다. 학생이 고유 프로젝트 ID를 임의로 채우거나 JSON 보고서 파일을 만들지 않습니다.
+8. 실제 Google·Firebase 연결·배포·권한 검증은 이 자료 제작 과정에서 실행하지 않았습니다. 강사 사전 예행연습과 학생의 직접 확인이 필요합니다.
+9. 예전의 prompt-06~12, prompt-X02~X12는 이전 안내를 대신하는 이동 안내입니다. 새 순서는 03→04→05뿐입니다.
+10. research-workbench.html·DEMO CSV·JSON·report-example은 이전 보조 자료입니다. 현재 결과물이나 세 연결의 완성 앱이 아닙니다. 자료실 기본 목록과 새 ZIP의 필수 실습 묶음에서 제외합니다.
+11. 수업 시간은 학습 160분+휴식 20분 제안입니다. 외부 계정 승인 대기 시간은 환경마다 다릅니다.

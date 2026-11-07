@@ -1,0 +1,92 @@
+3. Firebase 연결 / 21–26페이지 · 38분 제안
+
+완성할 것: 현재 보고서를 Firestore에 저장하고 같은 브라우저에서 새로고침한 뒤 다시 읽습니다.
+
+왜 배우나: Firestore는 앱이 다시 읽을 수 있는 클라우드 기록 보관함입니다. Firebase 프로젝트 등록, 인증, 저장 권한은 서로 다른 설정입니다. 이번에는 로그인 화면을 늘리지 않고 익명 로그인으로 각 브라우저 사용자를 구분합니다.
+
+시작 전
+Sheets·Docs가 동작하는 앱을 유지합니다. 본인 Google 계정으로 console.firebase.google.com에 로그인합니다.
+프로젝트를 만들 수 있는 계정인지 강사가 수업 전에 확인합니다. 이번 실습에 결제 연결·Hosting·Functions·장기 자동화는 요구하지 않습니다. 요금제·사용량 조건은 본인 콘솔에서 확인합니다.
+같은 일반 브라우저에서 실습합니다. 익명 계정은 다른 브라우저·기기 또는 사이트 데이터 삭제 후 같은 사람임을 복구하는 기능이 아닙니다.
+
+[05] Firebase 연결
+준비: Firebase 콘솔에서 웹 앱 등록·익명 로그인·Firestore 규칙까지 준비합니다.
+이 단계 기본값: 표시 이름: 리서치 연습 / 웹 앱: research-note / 사용자별 comparison_records
+
+그대로 복사할 완성 예시
+Sheets·Docs가 연결된 기존 앱에 Firebase 저장과 다시 읽기만 추가해 줘.
+내가 제공한 Firebase 웹 앱 설정을 사용해 줘. 설정이 없으면 콘솔의 firebaseConfig만 요청하고 프로젝트 ID를 만들지 마. 서비스 계정 비밀키는 사용하지 마.
+Web SDK와 익명 로그인을 사용하고 인증 상태 복원 후 users/{uid}/comparison_records/{reportId}에 현재 보고서 ID·두 회사 값·가상 표시·관측 기간·본문·서버 저장 시각을 저장해 줘. 사용자 본인 경로만 허용하는 firestore.rules도 만들어 줘.
+btn-save-firestore는 ‘Firebase에 기록 저장’으로 연결하고 보고서 작성 전에는 막아 줘. 같은 ID는 갱신하고 서버 재조회 성공 뒤에만 저장 완료로 표시해 줘.
+‘최근 기록 다시 읽기’ 버튼으로 서버에서 최근 5개를 읽어 화면에 보여 줘. 같은 브라우저 새로고침 후 동일 사용자 ID와 기록을 확인해 줘. 오프라인 캐시를 서버 조회 성공으로 표시하지 마.
+기존 Google 버튼과 화면을 유지해 줘. 설정·인증·권한 오류를 나눠 안내하고 Apps Script 새 버전 적용 방법과 실제 미검증 항목을 알려 줘.
+
+예상 결과: 같은 브라우저에서 새로고침해도 Firebase의 본인 기록을 다시 읽습니다.
+직접 확인: Firestore 콘솔의 실제 문서·앱 재조회 값·보고서 ID를 대조합니다. 다른 사용자 경로는 규칙 테스트에서 거부되어야 합니다.
+막히면: permission-denied는 로그인 UID·문서 경로·규칙을 대조합니다. 브라우저 저장 제한이면 UID 유지 여부부터 확인합니다. allow true로 열지 않습니다.
+
+직접 따라 하기
+1. 본인 연습 프로젝트 만들기
+Firebase 콘솔에서 프로젝트 만들기를 누르고 표시 이름을 리서치 연습으로 정합니다. 자동으로 정해진 고유 프로젝트 ID를 유지합니다. Analytics는 이번 수업에서는 사용하지 않습니다. 기존 프로젝트가 있다면 그 프로젝트에 쓸 권한이 있는지 먼저 확인합니다.
+
+2. 웹 앱 등록
+프로젝트 개요에서 웹 아이콘 </> 또는 앱 추가 → 웹을 누릅니다. 앱 닉네임은 research-note로 정합니다. Hosting은 추가하지 않습니다. 등록 후 표시되는 웹 앱 설정 객체 firebaseConfig를 복사합니다.
+
+3. 설정 전달
+복사한 firebaseConfig를 Antigravity의 현재 프로젝트 대화에 붙입니다. 이 값은 어느 Firebase 웹 앱을 사용할지 알려 주는 설정입니다. 실제 프로젝트마다 달라 빈칸을 임의의 값으로 채울 수 없습니다. 서비스 계정 JSON·private_key·관리자 비밀키는 사용하지 않습니다.
+
+4. 익명 로그인 켜기
+왼쪽 Build → Authentication → 시작하기 → 로그인 방법에서 익명(Anonymous)을 선택해 사용 설정하고 저장합니다. 이것이 앱 사용자 UID를 만드는 단계입니다.
+
+5. Firestore 만들기
+Build → Firestore Database → 데이터베이스 만들기를 누릅니다. Standard, 기본 데이터베이스, 프로덕션 모드로 시작합니다. 위치 기본 제안은 서울 asia-northeast3이며 제공 목록을 확인합니다. 이미 생성한 DB의 위치를 바꾸는 실습은 하지 않습니다.
+
+6. 본인 경로 규칙 넣기
+Firestore의 Rules 탭에서 아래 수업 규칙을 본인 새 연습 프로젝트에 붙이고 게시합니다. 기존 운영 프로젝트의 규칙을 이 짧은 예제로 덮어쓰지 않습니다. 이 규칙은 로그인한 UID와 경로의 userId가 같을 때만 접근을 허용합니다.
+
+7. P05 한 번 보내기
+프롬프트 05를 보냅니다. 실제 config를 전달했으므로 프로젝트 ID를 재작성하지 않습니다. AI가 현재 앱의 Firebase 저장 버튼·최근 기록 다시 읽기·firestore.rules를 만듭니다. 같은 Apps Script Index와 필요한 파일 변경을 적용하고 기존 배포를 새 버전으로 갱신합니다.
+
+8. 처음 저장하기
+웹 앱에서 기본 예제로 시작 → 보고서 작성 → Firebase에 기록 저장을 누릅니다. 인증 완료 후 저장해야 합니다. 저장 응답과 서버 재조회가 성공했을 때만 저장 완료가 표시되어야 합니다.
+
+9. 콘솔에서 문서 열기
+Firestore의 데이터 탭에서 users → 앱의 현재 UID → comparison_records → 보고서 ID를 찾습니다. 두 회사 값·가상 표시·보고서 본문·서버 저장 시각을 확인합니다. 앱에서 안내하는 본인 UID와 ID를 대조합니다.
+
+10. 같은 브라우저로 다시 읽기
+같은 웹 앱 주소를 새로고침하고 최근 기록 다시 읽기를 누릅니다. 인증 복원이 끝난 뒤 서버에서 읽은 기록이 나타나야 합니다. 새로고침 전후 UID와 보고서 ID가 같은지 봅니다. 오프라인 캐시 결과와 서버 응답은 구분합니다.
+
+11. 권한 한 번 점검하기
+Rules Playground에서 경로 /users/student-a/comparison_records/report-1을 대상으로 get을 시험합니다. 인증 UID student-a는 허용, student-b와 미인증은 거부되어야 합니다. 테스트용 문자열이며 실제 UID를 바꾸는 명령이 아닙니다. 연결이 막혀도 allow true로 바꾸지 않습니다.
+
+복사할 Firestore 규칙
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/comparison_records/{reportId} {
+      allow read, write: if request.auth != null
+                        && request.auth.uid == userId;
+    }
+  }
+}
+
+성공 확인
+Firebase 콘솔에 앱이 저장한 실제 문서가 있습니다.
+같은 브라우저 새로고침 후 같은 UID의 기록을 서버에서 읽습니다.
+서로 다른 사용자 경로와 미인증 접근은 규칙에서 거부됩니다.
+
+막혔을 때
+설정 없음 / 잘못된 프로젝트 → 콘솔 프로젝트 설정 → 일반 → 내 앱 → 웹 앱 SDK 설정에서 실제 firebaseConfig를 다시 확인합니다.
+auth/operation-not-allowed → 현재 config의 프로젝트에서 익명 로그인 사용을 켰는지 확인합니다.
+permission-denied → 인증 완료 여부 → 현재 UID → users/UID/comparison_records 경로 → 게시된 규칙 순서로 대조합니다.
+새로고침 뒤 기록이 없음 → 이전과 현재 UID가 같은지 먼저 확인합니다. Apps Script iframe과 브라우저 저장 제한의 영향을 강사가 예행연습합니다. UID가 유지되지 않으면 새로고침 복원은 미검증으로 적고, 기록이 삭제됐다고 단정하지 않습니다.
+오프라인인데 성공으로 나옴 → 서버 조회 방식과 캐시 표시를 분리하도록 요청합니다. SDK만 초기화된 상태를 저장 성공이라고 말하지 않습니다.
+
+노하우: 설정값은 저장할 프로젝트, 인증은 사용자 구분, 규칙은 접근 가능한 경로를 정합니다. 저장 후 다시 읽은 값과 원본을 대조해야 연결을 검증한 것입니다.
+
+공식 출처
+Firebase: 웹 앱 등록과 SDK 연결 https://firebase.google.com/docs/web/setup
+Firebase: 익명 로그인 https://firebase.google.com/docs/auth/web/anonymous-auth
+Firebase: Firestore 시작 https://firebase.google.com/docs/firestore/quickstart
+Firebase: 사용자별 보안 규칙 https://firebase.google.com/docs/firestore/security/get-started
+Firebase: 인증 상태 유지 https://firebase.google.com/docs/auth/web/auth-state-persistence
