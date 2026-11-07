@@ -1,0 +1,14 @@
+주식 리서치 데이터 규칙 v1 / 2026-11-07
+전체 구조: {"version":1,"stocks":[종목 객체,...]}. stock-data-example.json이 실행 가능한 예제다.
+파일명: 수강생 결과는 stock-data.json. UTF-8 JSON이며 설명 문장·코드 블록을 파일에 넣지 않는다.
+종목 필수 항목: symbol(문자열), name, market, currency, timezone, price_type, adjustment, data_kind(실제 또는 교육용 가상), retrieved_at, prices, news, sources, analysis, missing.
+retrieved_at: 실제 조회 시각을 ISO 8601과 시간대로 기록. 예제는 생성일을 기록한 가상 자료다.
+prices: [{date:"YYYY-MM-DD",close:숫자 또는 null,source_id:"출처 ID"}]. 날짜순·중복 없음. 통화 혼합 금지. 누락은 null이며 0으로 채우지 않는다.
+sources: [{id:"ID",title:"출처명",url:"https://원문주소 또는 null"}]. 가상 원문 주소를 만들지 않는다. 원본 자료는 별도 보존한다.
+news: [{id,date,title,read_scope:"본문 확인 또는 제목만 확인 또는 미확인",summary:"짧은 직접 요약 또는 null",source_id}]. 제목만 확인했으면 summary:null.
+analysis: {facts:[{text,source_ids:["ID"]}],interpretations:[{text,source_ids:["ID"]}],questions:["추가 질문"]}.
+missing: ["누락 항목·접근 실패 이유·미확인 사항"]. 사실·해석의 source_ids는 sources에 있어야 한다.
+같은 symbol+market만 갱신하고 다른 종목은 보존한다. 수집 기간이 바뀌면 분석도 재검토한다.
+빈 목록·null은 미확인을 의미한다. 수집 실패를 허위 값으로 보충하지 않는다. 미확인 기준은 '확인 필요'라고 기록한다.
+웹페이지는 저장된 종목만 검색한다. 보고서는 선택 종목의 전체 저장 기간을 사용하며 브라우저에서 인터넷 수집·AI 분석을 하지 않는다.
+새 자료: Antigravity에서 갱신 → JSON 저장 → 양식에서 다시 불러오기. 서버·API 키는 기본 실습에 필요하지 않다.

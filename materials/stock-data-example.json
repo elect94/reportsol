@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "stocks": [
+    {
+      "symbol": "DEMO",
+      "name": "데모테크",
+      "market": "가상 시장",
+      "currency": "USD",
+      "timezone": "교육용 가상 날짜",
+      "price_type": "저장 종가",
+      "adjustment": "해당 없음·가상",
+      "data_kind": "교육용 가상",
+      "retrieved_at": "2026-11-07 (가상 자료 생성일)",
+      "prices": [
+        {
+          "date": "2026-10-19",
+          "close": 100,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-20",
+          "close": 102,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-21",
+          "close": 101,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-22",
+          "close": 104,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-23",
+          "close": 103,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-26",
+          "close": 105,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-27",
+          "close": 108,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-28",
+          "close": 107,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-29",
+          "close": 109,
+          "source_id": "D01"
+        },
+        {
+          "date": "2026-10-30",
+          "close": 110,
+          "source_id": "D01"
+        }
+      ],
+      "sources": [
+        {
+          "id": "D01",
+          "title": "제공 stock-prices.csv · 교육용 창작",
+          "url": null
+        },
+        {
+          "id": "N01",
+          "title": "데모테크, 신규 생산라인 투자 계획 발표 · 교육용 창작",
+          "url": null
+        },
+        {
+          "id": "N02",
+          "title": "주요 부품 공급 일정에 관한 업계 논의 · 교육용 창작",
+          "url": null
+        },
+        {
+          "id": "N03",
+          "title": "다음 분기 수요 전망을 둘러싼 서로 다른 시각 · 교육용 창작",
+          "url": null
+        }
+      ],
+      "news": [
+        {
+          "id": "N01",
+          "date": "2026-10-21",
+          "title": "데모테크, 신규 생산라인 투자 계획 발표",
+          "read_scope": "본문 확인",
+          "summary": "신규 생산라인 투자 계획이라는 가상 설정이며 실행 여부와 실적 증가는 미확인입니다.",
+          "source_id": "N01"
+        },
+        {
+          "id": "N02",
+          "date": "2026-10-26",
+          "title": "주요 부품 공급 일정에 관한 업계 논의",
+          "read_scope": "제목만 확인",
+          "summary": null,
+          "source_id": "N02"
+        },
+        {
+          "id": "N03",
+          "date": "2026-10-29",
+          "title": "다음 분기 수요 전망을 둘러싼 서로 다른 시각",
+          "read_scope": "본문 확인",
+          "summary": "신제품 관심과 경쟁·비용 부담이 함께 제시되며 실측 수요는 제공되지 않았습니다.",
+          "source_id": "N03"
+        }
+      ],
+      "analysis": {
+        "facts": [
+          {
+            "text": "가상 전체 기록의 첫 종가는 100 USD, 마지막은 110 USD입니다.",
+            "source_ids": [
+              "D01"
+            ]
+          }
+        ],
+        "interpretations": [
+          {
+            "text": "투자 계획의 실행 여부와 비용을 추가로 살펴볼 수 있으나 가격 변화의 원인이라고 단정할 수 없습니다.",
+            "source_ids": [
+              "N01",
+              "N03"
+            ]
+          }
+        ],
+        "questions": [
+          "투자 계획이 실제 실행되었다는 자료가 있는가?"
+        ]
+      },
+      "missing": [
+        "N02 본문 미확인",
+        "모든 가격과 뉴스는 교육용 창작이며 실제 시세·보도가 아님"
+      ]
+    },
+    {
+      "symbol": "SAMPLE",
+      "name": "샘플리서치",
+      "market": "가상 시장",
+      "currency": "KRW",
+      "timezone": "교육용 가상 날짜",
+      "price_type": "저장 종가",
+      "adjustment": "해당 없음·가상",
+      "data_kind": "교육용 가상",
+      "retrieved_at": "2026-11-07 (가상 자료 생성일)",
+      "prices": [
+        {
+          "date": "2026-10-28",
+          "close": 20000,
+          "source_id": "SAMPLE01"
+        },
+        {
+          "date": "2026-10-29",
+          "close": null,
+          "source_id": "SAMPLE01"
+        },
+        {
+          "date": "2026-10-30",
+          "close": 21000,
+          "source_id": "SAMPLE01"
+        }
+      ],
+      "sources": [
+        {
+          "id": "SAMPLE01",
+          "title": "검색 전환 연습용 창작 가격",
+          "url": null
+        }
+      ],
+      "news": [],
+      "analysis": {
+        "facts": [],
+        "interpretations": [],
+        "questions": [
+          "누락된 종가는 어디서 확인할 수 있는가?"
+        ]
+      },
+      "missing": [
+        "2026-10-29 종가 누락",
+        "뉴스·분석 자료 없음",
+        "교육용 창작 종목·가격"
+      ]
+    }
+  ]
+}

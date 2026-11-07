@@ -1,0 +1,7 @@
+실습 폴더와 양식 준비
+입력: research-workbench.html + stock-data-example.json + data-format.txt
+
+준비된 research-workbench.html, stock-data-example.json, data-format.txt를 이번 실습 폴더에서 확인해줘.
+목표는 Antigravity로 자료를 수집·검증해 JSON으로 저장하고, 웹페이지에서 종목을 검색해 보고서를 만드는 거야.
+기존 파일을 보존하고 로그인 정보·비밀번호를 요구하지 마. 새 서버·유료 연결·외부 게시 없이 시작해줘.
+양식 파일을 열고 JSON 불러오기 → DEMO 검색 → 종목 선택 → 보고서 작성 흐름을 설명해줘.

@@ -1,0 +1,7 @@
+﻿source_id,title,url,checked,role,limit
+S01,참고 교육 사이트 · AI와 주식 보고서 만들기,https://narnialab.duckdns.org:17468/,2026-11-07,주제·진행 흐름·밝은 슬라이드 구성 참고,강사소개 및 미검증 최신 성과 주장은 포함하지 않음
+S02,Google Antigravity · 공식 다운로드,https://antigravity.google/download,2026-11-07,운영체제별 App 다운로드 안내,모델·요금·한도는 현재 계정 화면에서 확인
+S03,Google Antigravity · 시작 안내,https://antigravity.google/docs/getting-started,2026-11-07,프로젝트 시작과 도구 준비,버전·언어에 따라 화면 배치가 달라질 수 있음
+S04,Google Antigravity · 모델 선택,https://antigravity.google/docs/models,2026-11-07,사용할 모델을 고를 때 참고,특정 모델의 무료 이용·성능은 보장하지 않음
+S05,GitHub Docs · Pages 사이트 만들기,https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site,2026-11-07,선택 공유 단계의 정적 사이트 게시 절차,본인 계정·공개 범위 확인 후 진행
+D01,교육용 가상 가격·뉴스,materials/data-dictionary.txt,2026-11-07,직접 계산과 기사 읽기 실습,실제 기업·시세·보도 자료가 아님

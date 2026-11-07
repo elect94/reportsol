@@ -1,0 +1,7 @@
+준비된 양식 먼저 사용하기
+입력: research-workbench.html + stock-data-example.json
+
+research-workbench.html을 열어 stock-data-example.json을 불러오는 방법을 안내해줘.
+DEMO와 SAMPLE은 모두 교육용 가상 종목이야. 검색창에 DEMO 입력 → 결과 선택 → 보고서 작성 → 인쇄/PDF 저장 순서로 확인하자.
+저장된 종목만 검색하며 웹페이지에서 인터넷 검색이나 AI 호출은 하지 않는다는 점을 설명해줘.
+직접 확인하지 않은 동작은 검증했다고 하지 마. 파일을 임의로 변경하지 마.

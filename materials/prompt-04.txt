@@ -1,0 +1,8 @@
+수집이 어려우면 가상 자료로
+입력: stock-data-example.json + data-format.txt + 제공 CSV/TXT
+
+실제 자료 수집이 어려워서 제공된 가상 자료로 연습할게.
+stock-data-example.json을 읽고 두 가상 종목 DEMO·SAMPLE의 구조를 설명해줘. 실제 기업 데이터로 바꾸지 마.
+DEMO 가격은 stock-prices.csv, 뉴스는 news.csv와 news-01.txt·news-03.txt와 대조해줘. N02는 제목만 있고 본문은 미확인이야.
+원본을 보존하고 stock-data.json에 연습용 사본을 준비해줘. 기존 파일이 있다면 기존 종목을 보존해 합쳐줘.
+웹페이지에서 JSON 불러오기 → 두 종목 검색·선택 → 보고서 작성 순서로 안내해줘.
